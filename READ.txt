@@ -1,0 +1,6 @@
+FOR C++:
+ 1.Copy the downloaded "cpp" file,
+ 2.Paste in this C:\TURBOC3
+ 3.Open turbo C++
+ 4.Add file .
+ 5.Enter file name.
