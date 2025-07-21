@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 Secure Software Portal</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --error: #dc2626;
+            --success: #10b981;
+            --gray: #6b7280;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f9fafb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+        .logo {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            background: #e0e7ff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        h1 {
+            color: #111827;
+            margin: 0 0 8px 0;
+            font-size: 24px;
+        }
+        .subtitle {
+            color: var(--gray);
+            margin-bottom: 32px;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #374151;
+            font-weight: 500;
+        }
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        button:hover {
+            background: #4338ca;
+        }
+        .message {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+        .error {
+            background: #fee2e2;
+            color: var(--error);
+            border: 1px solid #fecaca;
+        }
+        .success {
+            background: #ecfdf5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        .download-section {
+            display: none;
+            margin-top: 32px;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .file-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            background: #e0e7ff;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            color: var(--primary);
+        }
+        .file-info {
+            flex: 1;
+            text-align: left;
+        }
+        .file-name {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .file-size {
+            color: var(--gray);
+            font-size: 13px;
+        }
+        .download-btn {
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">69</div>
+        <h1>WELCOME</h1>
+        <p class="subtitle">Enter your access key to continue</p>
+        
+        <div class="form-group">
+            <label for="password">Access Key</label>
+            <input type="password" id="password" placeholder="Enter your unique access key">
+        </div>
+        
+        <button onclick="checkAccess()">Continue</button>
+        
+        <div id="errorMessage" class="message error">
+            Invalid access key. Please try again.
+        </div>
+        
+        <div id="fakeMessage" class="message success">
+            Access granted! Preparing download...
+        </div>
+        
+        <div id="downloadSection" class="download-section">
+            <h3 style="text-align: left; margin-bottom: 16px;">Available Downloads</h3>
+            
+            <div class="file-card">
+                <div class="file-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                        <line x1="9" y1="15" x2="15" y2="15"></line>
+                    </svg>
+                </div>
+                <div class="file-info">
+                    <div class="file-name">ZIP</div>
+                    <div class="file-size">69 bytes</div>
+                </div>
+                <a href="Programs/ZIP.zip" class="download-btn" download>Download</a>
+            </div>
+            
+            <!-- Add more files as needed -->
+        </div>
+    </div>
+
+    <script>
+        // Set your REAL password here
+        const REAL_PASSWORD = "CS69";
+        
+        // Common passwords that trigger fake success
+        const FAKE_PASSWORDS = ["password", "123456", "access", "admin", "letmein"];
+        
+        function checkAccess() {
+            const password = document.getElementById("password").value;
+            const errorMsg = document.getElementById("errorMessage");
+            const fakeMsg = document.getElementById("fakeMessage");
+            const downloadSection = document.getElementById("downloadSection");
+            
+            // Hide all messages initially
+            errorMsg.style.display = "none";
+            fakeMsg.style.display = "none";
+            
+            if (password === REAL_PASSWORD) {
+                // Correct password - show real downloads
+                downloadSection.style.display = "block";
+            } 
+            else if (FAKE_PASSWORDS.includes(password.toLowerCase())) {
+                // Fake password - show "success" but never show downloads
+                fakeMsg.style.display = "block";
+                
+                // Make it look like it's loading
+                setTimeout(() => {
+                    fakeMsg.textContent = "Download failed: Invalid credentials";
+                    fakeMsg.className = "message error";
+                }, 2500);
+            }
+            else {
+                // Wrong password - show error
+                errorMsg.style.display = "block";
+            }
+        }
+        
+        // Allow pressing Enter key
+        document.getElementById("password").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                checkAccess();
+            }
+        });
+    </script>
+</body>
+</html>
